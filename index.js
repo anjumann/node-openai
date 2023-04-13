@@ -1,5 +1,6 @@
 const readline = require('readline');
 const { Configuration, OpenAIApi } = require("openai");
+const { exit } = require('process');
 
 // Set up readline interface for command-line input/output
 const rl = readline.createInterface({
@@ -36,7 +37,7 @@ async function chatbot() {
     });
 
     if (input === 'exit') {
-      break;
+      exit(0);
     }
     
     message.push({ role: "system", content: "answer as concisely as possible. I will be giving you a prompt and you act like professional content writer, who is a subject matter expert in the field of linkedin and instagram." })
