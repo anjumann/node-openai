@@ -2,6 +2,7 @@ const readline = require('readline');
 const { Configuration, OpenAIApi } = require("openai");
 const { exit } = require('process');
 
+require('dotenv').config()
 // Set up readline interface for command-line input/output
 const rl = readline.createInterface({
   input: process.stdin,
@@ -10,7 +11,7 @@ const rl = readline.createInterface({
 
 // Set up OpenAI API credentials
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -39,12 +40,12 @@ async function chatbot() {
     if (input === 'exit') {
       exit(0);
     }
-    
+
     message.push({ role: "system", content: "answer as concisely as possible. I will be giving you a prompt and you act like professional content writer, who is a subject matter expert in the field of linkedin and instagram." })
     message.push({ role: "user", content: input })
     const response = await generateResponse(message);
     message.push({ role: "system", content: response })
-    
+
     console.log(`Bot:\n ${response}`);
   }
 }
