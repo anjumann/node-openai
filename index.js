@@ -2,16 +2,19 @@ const readline = require('readline');
 const { Configuration, OpenAIApi } = require("openai");
 const { exit } = require('process');
 
-// require('dotenv').config()
+require('dotenv').config()
 // Set up readline interface for command-line input/output
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-const apiKey = async () =>{
+
+
+
+const apiKey = async () => {
   console.log("Enter the API key for OpenAI's GPT-3 language model: ");
-  const apiKey =  await new Promise(resolve => {
+  const apiKey = await new Promise(resolve => {
     rl.question('> ', resolve)
   });
   return apiKey
@@ -19,7 +22,7 @@ const apiKey = async () =>{
 
 // Set up OpenAI API credentials
 const configuration = new Configuration({
-  apiKey: "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"
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
