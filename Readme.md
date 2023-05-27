@@ -41,11 +41,14 @@ Note: There is no `.env` file for this program. The API key is taken via the com
 
 To start the chatbot, run the following command:
 
-```
+```javascript
 node index.js
 ```
 
-You will be prompted to enter your OpenAI API key. Once you have entered your API key, you can start chatting with the bot.
+<!-- You will be prompted to enter your OpenAI API key. Once you have entered your API key, you can start chatting with the bot. -->
+
+Rename .env.example file to .env and then enter your OpenAI API key in .env file
+
 
 Type your message in the command line and press enter to receive a response from the chatbot. To exit the program, type `exit`.
 

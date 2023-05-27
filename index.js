@@ -13,7 +13,7 @@ const rl = readline.createInterface({
 
 
 const apiKey = async () => {
-  console.log("Enter the API key for OpenAI's GPT-3 language model: ");
+  console.log("Enter the API key for OpenAI's GPT-3.5 turbo language model: ");
   const apiKey = await new Promise(resolve => {
     rl.question('> ', resolve)
   });
@@ -50,7 +50,7 @@ async function chatbot() {
       exit(0);
     }
 
-    message.push({ role: "system", content: " Build a real-time data pipeline application that pulls data from a source using an API, saves it to a database, and streams it out as an API. Your application should be designed to act quickly and efficiently to ensure that the data is processed and made available for external consumption as soon as possible. Consider how you can optimize your application's performance and minimize latency to provide the most responsive and up-to-date data possible. Additionally, think about how you can handle errors and ensure data accuracy throughout the pipeline give the code for the same" })
+    message.push({ role: "system", content: "answer as concisely as possible. I will be giving you a prompt and you act like professional content writer, who is a subject matter expert in the field of linkedin and instagram. use emojies." })
     message.push({ role: "user", content: input })
     const response = await generateResponse(message);
     message.push({ role: "system", content: response })
